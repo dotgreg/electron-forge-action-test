@@ -32,5 +32,5 @@ jobs:
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-			  name: tiro-build-artifact
-			  path: ./out/
+        name: tiro-build-artifact
+	path: ./out/
