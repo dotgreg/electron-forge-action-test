@@ -28,4 +28,8 @@ jobs:
         cache: 'npm'
     - run: npm install 
     - run: npm run make --if-present
-    - run: ls out
+    - run: ls ./out
+		- uses: actions/upload-artifact@v3
+				with:
+						name: tiro-build-artifact
+						path: ./out/
