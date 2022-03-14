@@ -30,12 +30,13 @@ jobs:
     
     - run: npm run make --if-present
     
-    - run: ls ./out
+    - run: cd ./out; ls *
     
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: electron-test
-        path: |
-          ./out/make/deb/x64/*.deb
-          ./out/make/zip/darwin/arm64/*.zip
+        path: ./out/make/deb/x64/*.deb
+
+    - uses: actions/upload-artifact@v3
+      with:
+        path: ./out/make/zip/darwin/arm64/*.zip
