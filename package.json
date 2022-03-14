@@ -7,8 +7,11 @@
 		"scripts": {
 				"start": "electron-forge start",
 				"package": "electron-forge package",
+
 				"make": "electron-forge make",
-				"make-linux": "electron-forge make --platform linux",
+				"make-linux-x64": "cp ./not-packaged/ripgrep/rg-linux-x64 ./bin/rg; electron-forge make --platform linux",
+				"make-darwin-arm": "cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg; electron-forge make --platform darwin",
+
 				"publish": "electron-forge publish",
 				"lint": "echo \"No linting configured\""
 		},
@@ -20,7 +23,11 @@
 		"license": "MIT",
 		"config": {
 				"forge": {
-						"packagerConfig": {},
+						"packagerConfig": {
+								"ignore": [
+										"not-packaged"
+								]
+						},
 						"makers": [
 								{
 										"name": "@electron-forge/maker-squirrel",

@@ -31,7 +31,7 @@ const logWrite = (content) => {
 
 const rgBinTest = () => {
 		const appRootDir = require('app-root-dir').get();
-		const binPath = appRootDir + '/bin/rgvscode';
+		const binPath = appRootDir + '/bin/rg';
 		console.log({binPath});
 		const spawn = require( 'child_process' ).spawn;
 		const child = spawn( binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);  //add whatever switches you need here, test on command line first
