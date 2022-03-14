@@ -34,6 +34,5 @@ jobs:
       with:
         name: tiro-build-artifact
         path: |
-				  ./out/make/deb/x64/*.deb
-				  ./out/make/zip/darwin/arm64/*.zip
-
+	  ./out/make/deb/x64/*.deb
+	  ./out/make/zip/darwin/arm64/*.zip
