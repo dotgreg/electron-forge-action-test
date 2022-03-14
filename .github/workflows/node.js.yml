@@ -30,7 +30,7 @@ jobs:
     
     - run: npm run make --if-present
     
-    - run: cd ./out; ls *
+    - run: cd ./out; npx tree-cli -l 2 -y
     
     - name: upload artifacts
       uses: actions/upload-artifact@v3

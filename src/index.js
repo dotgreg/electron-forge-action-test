@@ -21,7 +21,7 @@ const fs = require('fs')
 const logWrite = (content) => {
 		const appRootDir = require('app-root-dir').get();
 		const binLogPath = appRootDir + '/bin/log.html';
-		fs.writeFile(binLogPath, content, err => {
+		fs.appendFile(binLogPath, content, err => {
 				if (err) {
 						console.error(err)
 						return
@@ -56,8 +56,9 @@ const rgBinTest = () => {
 		console.log({binPath});
 		//const child = spawn( binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);  //add whatever switches you need here, test on command line first
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
-		execCmdLog('pwd', []);
+		//execCmdLog('pwd', []);
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
-		execCmdLog(binPath, ['woop', `~/test-data-folder`]);
+		execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
+		execCmdLog(binPath, ['woop', `/home/ubuntu/Desktop/data-test`]);
 		//execCmdLog('ls', ['*']);
 };
