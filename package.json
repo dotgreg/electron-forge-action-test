@@ -1,7 +1,7 @@
 {
 		"name": "electron-forge-test",
 		"productName": "electron-forge-test",
-		"version": "1.0.3",
+		"version": "1.0.4",
 		"description": "My Electron application description",
 		"main": "src/index.js",
 		"scripts": {
@@ -18,7 +18,7 @@
 				"start-mac": "npm run copy-rg-darwin-arm; electron-forge start",
 
 				"============= BUILD PROCESS ================":"",
-				"make": "npm run make-linux-x64; nnpm run make-darwin-x64; pm run make-darwin-arm64",
+				"make": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-darwin-arm64",
 
 				"=== LINUX":"",
 				"make-linux-x64": "echo '== LINUX X64 =='; npm run copy-rg-linux-x64; electron-forge make --platform linux --arch x64",
