@@ -11,6 +11,8 @@ const createWindow = () => {
 
 const { exec } = require('child_process');
 app.whenReady().then(() => {
+		cleanLog();  
+		logWrite(`==== NEW APP START ===`);  
 		rgBinTest();
 		setTimeout( () => {
 				createWindow();
@@ -18,7 +20,13 @@ app.whenReady().then(() => {
 })
 
 const fs = require('fs')
+const cleanLog = () => {
+		const appRootDir = require('app-root-dir').get();
+		const binLogPath = appRootDir + '/bin/log.html';
+		fs.writeFile(binLogPath, '', err => {})
+}
 const logWrite = (content) => {
+		content = `${new Date().getTime()} => ${content} <br/>`
 		const appRootDir = require('app-root-dir').get();
 		const binLogPath = appRootDir + '/bin/log.html';
 		fs.appendFile(binLogPath, content, err => {
@@ -35,18 +43,18 @@ const execCmdLog = (cmd, params) => {
 				const child = spawn( cmd, params);  
 				child.stdout.on( 'data', data => {
 						data = `${data}`.substring(1,400);
-						const str = `[${cmd}] ${new Date().getTime()}: ${data}`;
+						const str = `[${cmd}] : ${data}`;
 						console.log( str );
 						logWrite(str);  
 				});
 				child.stderr.on( 'data', data => {
 						data = `${data}`.substring(1,400);
-						const str = `[${cmd} ERROR!] ${new Date().getTime()}: ${data}`;
+						const str = `[${cmd} ERROR!] : ${data}`;
 						console.log( str );
 						logWrite(str);  
 				});
 		} catch (e) {
-				logWrite(`[${cmd} ERROR JS!] ${new Date().getTime()} : ${e}`);
+				logWrite(`[${cmd} ERROR JS!] : ${e}`);
 		}
 }
 
@@ -54,6 +62,7 @@ const rgBinTest = () => {
 		const appRootDir = require('app-root-dir').get();
 		const binPath = appRootDir + '/bin/rg';
 		console.log({binPath});
+		logWrite(`binpath : ${binPath}`);
 		//const child = spawn( binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);  //add whatever switches you need here, test on command line first
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
 		//execCmdLog('pwd', []);
