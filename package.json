@@ -8,7 +8,8 @@
 				"start": "electron-forge start",
 				"package": "electron-forge package",
 
-				"make": "electron-forge make",
+				"makeOLD": "electron-forge make",
+				"make": "npm run make-linux-x64",
 				"make-linux-x64": "cp ./not-packaged/ripgrep/rg-linux-x64 ./bin/rg; electron-forge make --platform linux",
 				"make-darwin-arm": "cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg; electron-forge make --platform darwin",
 

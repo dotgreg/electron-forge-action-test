@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm install 
     
-    - run: npm run make-linux --if-present
+    - run: npm run make --if-present
     
     - run: ls ./out
     
