@@ -12,23 +12,24 @@
 				"clean-bin": "rm ./bin/rg",
 				"copy-rg-darwin-arm": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg",
 				"copy-rg-linux-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-linux-x64 ./bin/rg ",
+				"copy-rg-darwin-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-x64 ./bin/rg ",
 
 				"============= DEV PROCESS ================":"",
 				"start-mac": "npm run copy-rg-darwin-arm; electron-forge start",
 
 				"============= BUILD PROCESS ================":"",
-				"make": "npm run make-linux-x64; npm run make-darwin-arm64",
+				"make": "npm run make-linux-x64; nnpm run make-darwin-x64; pm run make-darwin-arm64",
 
 				"=== LINUX":"",
 				"make-linux-x64": "echo '== LINUX X64 =='; npm run copy-rg-linux-x64; electron-forge make --platform linux --arch x64",
 
 				"=== MAC":"",
-				"make-darwin-arm64": "echo '== DARWIN ARM64 =='; npm run copy-rg-darwin-arm; electron-forge make --platform darwin --arch arm64",
+				"make-darwin-arm64": "echo '== DARWIN ARM64 =='npm run copy-rg-darwin-arm; electron-forge make --platform darwin --arch arm64",
+				"make-darwin-x64": "echo '== DARWIN X64 =='npm run copy-rg-darwin-x64; electron-forge make --platform darwin --arch x64",
 
 				"== TODO":"",
 				"=== WINDOWS":"",
 				"TODO make-win-x64": "echo '== WINDOWS X64 =='; cp ./not-packaged/ripgrep/rg-windows-x64 ./bin/rg; electron-forge make --platform windows --arch x64",
-				"TODO make-darwin-x64": "echo '== DARWIN X64 =='; cp ./not-packaged/ripgrep/rg-darwin-x64 ./bin/rg; electron-forge make --platform darwin --arch x64",
 
 				"publish": "electron-forge publish",
 				"lint": "echo \"No linting configured\""
