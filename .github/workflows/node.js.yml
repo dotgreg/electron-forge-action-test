@@ -30,9 +30,9 @@ jobs:
     - run: npm run make-linux --if-present
     - run: ls ./out
     - name: upload artifacts
-      uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
-        name: tiro-build-artifact
-	path: |
+        name: electron-test
+        path: |
           ./out/make/deb/x64/*.deb
-	  ./out/make/zip/darwin/arm64/*.zip
+          ./out/make/zip/darwin/arm64/*.zip
