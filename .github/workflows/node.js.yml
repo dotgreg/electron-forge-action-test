@@ -35,8 +35,10 @@ jobs:
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
+        name: electron-forge-test-linux-x64
         path: ./out/make/deb/x64/*.deb
 
     - uses: actions/upload-artifact@v3
       with:
+        name: electron-forge-test-darwin-arm
         path: ./out/make/zip/darwin/arm64/*.zip
