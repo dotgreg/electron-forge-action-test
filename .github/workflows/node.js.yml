@@ -27,10 +27,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install 
+    
     - run: npm run make-linux --if-present
+    
     - run: ls ./out
+    
     - name: upload artifacts
-    - uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: electron-test
         path: |
