@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron')
+const homedir = require('os').homedir();
+const logFile = `${homedir}/log-electron-test.html` 
 
 const createWindow = () => {
 		const win = new BrowserWindow({
@@ -6,7 +8,7 @@ const createWindow = () => {
 				height: 600
 		})
 
-		win.loadFile('bin/log.html')
+		win.loadFile(logFile)
 }
 
 const { exec } = require('child_process');
@@ -21,20 +23,11 @@ app.whenReady().then(() => {
 
 const fs = require('fs')
 const cleanLog = () => {
-		const appRootDir = require('app-root-dir').get();
-		const binLogPath = appRootDir + '/bin/log.html';
-		fs.writeFile(binLogPath, '', err => {})
+		fs.writeFile(logFile, '', err => {})
 }
 const logWrite = (content) => {
 		content = `${new Date().getTime()} => ${content} <br/>`
-		const appRootDir = require('app-root-dir').get();
-		const binLogPath = appRootDir + '/bin/log.html';
-		fs.appendFile(binLogPath, content, err => {
-				if (err) {
-						console.error(err)
-						return
-				}
-		})
+		fs.appendFile(logFile, content, err => {})
 }
 
 const execCmdLog = (cmd, params) => {
@@ -67,7 +60,7 @@ const rgBinTest = () => {
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
 		//execCmdLog('pwd', []);
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
-		execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
-		execCmdLog(binPath, ['woop', `/home/ubuntu/Desktop/data-test`]);
+		execCmdLog('pwd', []);
+		execCmdLog(binPath, ['woop', `${homedir}/Desktop/data-test`]);
 		//execCmdLog('ls', ['*']);
 };
