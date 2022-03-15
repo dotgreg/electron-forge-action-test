@@ -47,3 +47,8 @@ jobs:
       with:
         name: electron-forge-test-darwin-x64
         path: ./out/make/zip/darwin/x64/*.zip
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: electron-forge-test-win-x64
+        path: ./out/make/zip/win32/x64/*.zip

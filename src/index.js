@@ -1,11 +1,19 @@
 const { app, BrowserWindow } = require('electron')
 const homedir = require('os').homedir();
 const logFile = `${homedir}/log-electron-test.html` 
-const archi = process.arch
+const comp = {
+		os: process.platform,
+		archi: process.arch
+}
 
 const getRgPath = () => {
 		const appRootDir = require('app-root-dir').get();
-		const binPath = appRootDir + '/bin/rg.jpeg';
+		let filename = `rg`;
+		if (comp.os === 'win32') filename = `rg.exe`
+		if (comp.os === 'darwin' && comp.archi === 'arm64') filename = `rg-darwin-arm.jpeg`
+		if (comp.os === 'darwin' && comp.archi === 'x64') filename = `rg-darwin-x64`
+
+		const binPath = appRootDir + '/bin/rg';
 		console.log({binPath});
 		return binPath
 }
@@ -22,7 +30,7 @@ const createWindow = () => {
 const { exec } = require('child_process');
 app.whenReady().then(() => {
 		cleanLog();  
-		logWrite(`==== NEW APP START (${archi})===`);  
+		logWrite(`==== NEW APP START (${JSON.stringify(comp)})===`);  
 		rgBinTest();
 		setTimeout( () => {
 				createWindow();
