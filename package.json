@@ -23,7 +23,7 @@
 
 				"============= BUILD PROCESS ================":"",
 				"=== ENV INSTALL":"",
-				"env-install": "dpkg --print-architecture; dpkg --print-foreign-architectures; sudo apt update -y --fix-missing; sudo dpkg --add-architecture i386 -y; dpkg --print-foreign-architectures; wget -nc https://dl.winehq.org/wine-builds/winehq.key -y; sudo -H gpg -o /etc/apt/trusted.gpg.d/winehq.key.gpg --dearmor winehq.key -y; sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' -y; sudo apt update -y --fix-missing; sudo apt install --install-recommends winehq-stable -y; sudo apt install wine-stable wine64 wine32 -y",
+				"env-install": "dpkg --print-architecture; dpkg --print-foreign-architectures; sudo apt update -y --fix-missing; sudo dpkg --add-architecture i386; dpkg --print-foreign-architectures; wget -nc https://dl.winehq.org/wine-builds/winehq.key; sudo -H gpg -o /etc/apt/trusted.gpg.d/winehq.key.gpg --dearmor winehq.key -y; sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' -y; sudo apt update -y --fix-missing; sudo apt install --install-recommends winehq-stable -y; sudo apt install wine-stable wine64 wine32 -y",
 
 				"=== MAKE COMMANDS":"",
 				"make-all": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-win-x64",
