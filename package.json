@@ -12,11 +12,11 @@
 				"clean-bin": "rm ./bin/rg",
 				"copy-rg-darwin-arm": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg",
 				"copy-rg-linux-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-linux-x64 ./bin/rg ",
-				"copy-rg-darwin-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg ",
+				"copy-rg-darwin-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-arm ./bin/rg.jpeg ",
 				"NORMcopy-rg-darwin-x64": "npm run clean-bin; cp ./not-packaged/ripgrep/rg-darwin-x64 ./bin/rg ",
 
 				"============= DEV PROCESS ================":"",
-				"start-mac": "npm run copy-rg-darwin-arm; electron-forge start",
+				"start-mac": "npm run copy-rg-darwin-x64; electron-forge start",
 
 				"============= BUILD PROCESS ================":"",
 				"make": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-darwin-arm64",

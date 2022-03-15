@@ -1,6 +1,14 @@
 const { app, BrowserWindow } = require('electron')
 const homedir = require('os').homedir();
 const logFile = `${homedir}/log-electron-test.html` 
+const archi = process.arch
+
+const getRgPath = () => {
+		const appRootDir = require('app-root-dir').get();
+		const binPath = appRootDir + '/bin/rg.jpeg';
+		console.log({binPath});
+		return binPath
+}
 
 const createWindow = () => {
 		const win = new BrowserWindow({
@@ -14,7 +22,7 @@ const createWindow = () => {
 const { exec } = require('child_process');
 app.whenReady().then(() => {
 		cleanLog();  
-		logWrite(`==== NEW APP START ===`);  
+		logWrite(`==== NEW APP START (${archi})===`);  
 		rgBinTest();
 		setTimeout( () => {
 				createWindow();
@@ -52,9 +60,7 @@ const execCmdLog = (cmd, params) => {
 }
 
 const rgBinTest = () => {
-		const appRootDir = require('app-root-dir').get();
-		const binPath = appRootDir + '/bin/rg';
-		console.log({binPath});
+		const binPath = getRgPath();
 		logWrite(`binpath : ${binPath}`);
 		//const child = spawn( binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);  //add whatever switches you need here, test on command line first
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
