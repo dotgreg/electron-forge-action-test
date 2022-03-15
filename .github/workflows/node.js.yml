@@ -54,4 +54,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: electron-forge-test-win-x64
-        path: ./out/make/zip/win32/x64/*.zip
+        path: ./out/make/squirrel.windows/x64/*.exe
