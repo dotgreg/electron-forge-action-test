@@ -74,7 +74,7 @@ const rgBinTest = () => {
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
 		//execCmdLog('pwd', []);
 		//execCmdLog(binPath, ['woop', `/Users/gregoirethiebault/Desktop/_dev/data-test`]);
-		execCmdLog('pwd', []);
+		if (comp.os !== 'win32') execCmdLog('pwd', []);
 		execCmdLog(binPath, ['woop', `${homedir}/Desktop/data-test`]);
 		//execCmdLog('ls', ['*']);
 };
