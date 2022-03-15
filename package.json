@@ -23,7 +23,7 @@
 
 				"============= BUILD PROCESS ================":"",
 				"=== ENV INSTALL":"",
-				"env-install": "sudo apt update -y --fix-missing; sudo apt install wine64 wine32 -y",
+				"env-install": "sudo dpkg --add-architecture i386; sudo apt update -y --fix-missing; sudo apt install wine64 wine32 -y",
 
 				"=== MAKE COMMANDS":"",
 				"make-all": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-win-x64",
