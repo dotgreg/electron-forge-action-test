@@ -23,7 +23,7 @@
 
 				"============= BUILD PROCESS ================":"",
 				"=== ENV INSTALL":"",
-				"env-install": "dpkg --print-architecture; echo ==1==; dpkg --print-foreign-architectures; echo ==2==; sudo dpkg --add-architecture i386; echo =3==; dpkg --print-foreign-architectures; echo =4==; sudo apt update -y; echo ==5==; sudo apt install wine32 -y",
+				"env-install": "dpkg --print-architecture; echo ==1==; dpkg --print-foreign-architectures; echo ==2==; sudo dpkg --add-architecture i386; echo =3==; dpkg --print-foreign-architectures; echo =4==; sudo apt update -y; echo ==5==; sudo apt install wine32 wine64 -y",
 				"env-install-old": "dpkg --print-architecture; dpkg --print-foreign-architectures; sudo apt update -y --fix-missing; sudo dpkg --add-architecture i386; dpkg --print-foreign-architectures; wget -nc https://dl.winehq.org/wine-builds/winehq.key; sudo -H gpg -o /etc/apt/trusted.gpg.d/winehq.key.gpg --dearmor winehq.key; sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' -y; sudo apt update -y --fix-missing; sudo apt install wine -y; sudo apt install --install-recommends winehq-stable -y; sudo apt install wine-stable wine64 wine32 -y",
 
 				"=== MAKE COMMANDS":"",
