@@ -23,7 +23,7 @@
 
 				"============= BUILD PROCESS ================":"",
 				"=== ENV INSTALL":"",
-				"env-install": "apt install wine64 -y",
+				"env-install": "sudo apt install wine64 -y",
 
 				"=== MAKE COMMANDS":"",
 				"make-all": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-win-x64",
