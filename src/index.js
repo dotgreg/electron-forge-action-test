@@ -51,13 +51,13 @@ const execCmdLog = (cmd, params) => {
 		try {
 				const child = spawn( cmd, params);  
 				child.stdout.on( 'data', data => {
-						data = `${data}`.substring(1,400);
+						//data = `${data}`.substring(1,400);
 						const str = `[${cmd}] : ${data}`;
 						console.log( str );
 						logWrite(str);  
 				});
 				child.stderr.on( 'data', data => {
-						data = `${data}`.substring(1,400);
+						//data = `${data}`.substring(1,400);
 						const str = `[${cmd} ERROR!] : ${data}`;
 						console.log( str );
 						logWrite(str);  
