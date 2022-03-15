@@ -22,6 +22,10 @@
 				"start-mac": "npm run copy-rg-darwin-x64; electron-forge start",
 
 				"============= BUILD PROCESS ================":"",
+				"=== ENV INSTALL":"",
+				"env-install": "apt install wine64 -y",
+
+				"=== MAKE COMMANDS":"",
 				"make-all": "npm run make-linux-x64; npm run make-darwin-x64; npm run make-win-x64",
 				"make": "npm run make-win-x64",
 

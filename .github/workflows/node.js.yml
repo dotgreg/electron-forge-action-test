@@ -26,7 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - run: npm install 
+
+    - run: npm env-install 
     
     - run: npm run make --if-present
     
