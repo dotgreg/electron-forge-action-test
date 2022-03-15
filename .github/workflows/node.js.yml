@@ -29,7 +29,7 @@ jobs:
 
     - run: npm install 
 
-    - run: npm env-install 
+    - run: npm run env-install 
     
     - run: npm run make --if-present
     
